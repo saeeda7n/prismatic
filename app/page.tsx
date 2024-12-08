@@ -13,7 +13,7 @@ export default async function Home() {
     console.log(docs[0].data)
       return (
         <div >
-          Hello World
+            {JSON.stringify(docs)}
         </div>
       );
 }
