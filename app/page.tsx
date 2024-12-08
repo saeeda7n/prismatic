@@ -1,12 +1,19 @@
 import prisma from "@/prisma/prisma";
+import {AddRevenueStreamProps} from "@/addRevenueStream.schema";
 
-export const dynamic = "force-dynamic"
 export default async function Home() {
+     await prisma.integrations.create({
+         data:{data:{stream_type: "UNIT_SALES",unit_price: {
+             type: "CONSTANT",
+                     amount: 1,
+                 }} as AddRevenueStreamProps}
+     });
     const docs = await prisma.integrations.findMany();
-    console.log(docs)
+
+    console.log(docs[0].data)
       return (
         <div >
-            {JSON.stringify(docs, null, 2)}
+          Hello World
         </div>
       );
 }
