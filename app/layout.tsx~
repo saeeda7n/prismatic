@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -20,15 +20,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+    team,user
 }: Readonly<{
   children: React.ReactNode;
+  team: React.ReactNode
+  user: React.ReactNode
 }>) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      Hello
         {children}
+        {team}
+        {user}
       </body>
     </html>
   );
